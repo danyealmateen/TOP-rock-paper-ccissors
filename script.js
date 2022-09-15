@@ -1,11 +1,19 @@
 //Variables
-let output = document.getElementById('output');
-let random = ["rock", "paper", "scissor"];
+const output = document.getElementById('output');
+const random = ["rock", "paper", "scissor"];
+const computerSelection = getComputerChoice().toLowerCase();
+const prompty = (prompt("Rock, paper or scissors?"));
 let playerSelection = "rock";
-let computerSelection = getComputerChoice().toLowerCase();
+let playerSelectionScissor = "scissor";
+let playerSelectionPaper = "paper";
 let playerScore = 0;
 let computerScore = 0;
 
+
+if (prompty !== playerSelection && playerSelectionPaper && playerSelectionScissor == false) {
+  alert("wrong input")
+  throw new Error("Stop!")
+} 
 
 //Function that picks a random choice from the array (the computers choice)
 function getComputerChoice() {
@@ -19,12 +27,12 @@ function playRound(playerSelection, computerSelection) {
     return output.innerHTML = "It's a draw!";
 
   } else if (playerSelection === "rock" && computerSelection == "scissor") {
-    playerScore = ++playerScore;
+    ++playerScore;
     console.log(playerScore);
     return output.innerHTML = "You won!";
     
   } else if (playerSelection === "rock" && computerSelection == "paper" ) {
-    computerScore = ++computerScore;
+    ++computerScore;
     console.log(computerScore);
     return output.innerHTML = "You lose!";
   }
